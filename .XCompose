@@ -1,0 +1,43 @@
+// some apps cant read xkb key syms
+// <Multi_key> <k> <y> : less
+// use string literals instead
+
+<dead_grave> <q> : "`"
+<dead_grave> <w> : "-"
+<dead_grave> <W> : "+"
+<dead_grave> <d> : "="
+<dead_grave> <b> : "%"
+<dead_grave> <l> : "|"
+
+<dead_grave> <t> : "."
+<dead_grave> <T> : "~"
+<dead_grave> <s> : ","
+<dead_grave> <r> : "\""
+<dead_grave> <a> : "_"
+<dead_grave> <f> : ";"
+<dead_grave> <n> : "'"
+<dead_grave> <S> : "#"
+<dead_grave> <R> : "@"
+
+<dead_grave> <M> : "^"
+<dead_grave> <N> : "&"
+<dead_grave> <E> : "*"
+
+<dead_grave> <g> : "%"
+<dead_grave> <h> : ":"
+
+// --------------------
+
+<dead_tilde> <w> : "["
+<dead_tilde> <d> : "]"
+<dead_tilde> <p> : "?"
+<dead_tilde> <b> : "!"
+
+<dead_tilde> <a> : "{"
+<dead_tilde> <r> : "}"
+<dead_tilde> <s> : "("
+<dead_tilde> <t> : ")"
+<dead_tilde> <f> : "$"
+
+<dead_tilde> <g> : "<"
+<dead_tilde> <h> : ">"
