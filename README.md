@@ -157,8 +157,8 @@ This is a tradeoff that I'm willing to take for:
 Things to take note of:
 
 - Vim keybinds and any application keybinds with symbols still work as long
-as it's the symbol alone. This means typing ":" in vim through the Multi key
-still brings up the command line. In some websites however, this is finicky. 
+as it's the symbol alone. This means typing ":" in vim through dead keys
+still bring up the command line. In some websites however, this is finicky. 
 (Discussed later)
 - A lot of symbol keys near the right pinky and some keys on the number row
 are left unchanged. Take advantage of these to suit your needs.
