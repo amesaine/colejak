@@ -9,10 +9,10 @@ Colemak-dh but better (maybe)
 - Number layer on homerow
 - Number row becoms navigation row. Not layer, ***row***.
 
-[Layout preview](
+![Layout preview](
 https://github.com/jnz1g/colejak/blob/main/assets/colejak.png)
 
-[Layout finger placements](
+![Layout finger placements](
 https://github.com/jnz1g/colejak/blob/main/assets/colejak-finger-placement.png)
 
 
