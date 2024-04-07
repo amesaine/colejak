@@ -271,6 +271,21 @@ You'd reach for the mouse maybe 1-20 times a week. And if you're on a
 laptop, the trackpad is literally within thumb's reach. Guaranteed productivity
 gains.
 
+### How would I go about practicing this layout?
+
+- I did it in 3 weeks with my brain turned off. Literally just typed my brains out.
+I average 100wpm after 50 hours of typing tests. Add about 10 hours more to get 
+used to keyboard shortcuts. Here's how I did it.
+
+    - Monkeytype English until 50 wpm average.
+    - Keybr. Apply these settings (a) 60 wpm target speed. (b) Unlock next key only 
+    when the previous keys are also above the target speed. Beat all letters.
+    - Monkeytype English 5k until 80 wpm average.
+    - PR 132 wpm on Monkeytype English.
+    - Monkeytype code rust for numbers and symbols
+    - Monkeytype quotes
+    - Monkeytype code javascript for common programming words
+
 ### Does this apply to TTY as well?
 
 No. And I don't recommend doing anything this complicated to your TTY
@@ -286,6 +301,7 @@ TODO
 - Indicate sources of character/bigram frequencies. (English + Programming)
 - Add comments in xkb files (experimental features, implementation details)
 - Indicate Num Layer in keyboard previews once its finalized
+- Contribute layout to monkeytype
 
 Contribution
 ------------
