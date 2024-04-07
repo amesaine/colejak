@@ -299,6 +299,8 @@ Acknowledgement
 ### Keyboard Layout Pictures
 - Created with [keyboard-layout-editor.com][keyboard-layout-editor]. 
 - JSON for all layouts are available in [assets][assets].
+- Layout typing performance measured with [ Keyboard Layout Analyzer - SteveP's fork ][keyboard-layout-analyzer]
 
 [keyboard-layout-editor]: http://www.keyboard-layout-editor.com/
 [assets]: https://github.com/jnz1g/dotfiles/tree/master/.config/xkb/assets
+[keyboard-layout-analyzer]: https://stevep99.github.io/keyboard-layout-analyzer/#/main
