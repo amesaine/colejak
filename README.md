@@ -1,13 +1,16 @@
 Colejak
 =======
 
-Colemak-dh but better (maybe)
+The programmer's layout.
 
-- Thumbs are responsible for pressing the letters above the spacebar. (Thumb Typing)
-- Balances left-right hand usage with keyboard shortcuts, and vim motions in mind.
-- All symbols are typed with the Multi-key through XCompose.
-- Number layer on homerow
-- Number row becoms navigation row. Not layer, ***row***.
+- Colemak-DH foundation
+- Improved for thumb typing
+- Evens out left/right usage imbalance
+- Homerow symbols through dead keys
+- Number Layer
+- Navigation row enabling app-agnostic and layout-agnostic Vim motions
+- Created for run-of-the-mill staggered keyboards first
+- Optimized keyboard shortcut ergonomics
 
 ![Layout preview](
 https://github.com/jnz1g/colejak/blob/main/assets/colejak.png)
