@@ -163,6 +163,8 @@ still brings up the command line. In some websites however, this is finicky.
 - A lot of symbol keys near the right pinky and some keys on the number row
 are left unchanged. Take advantage of these to suit your needs.
 
+Found inside `.XCompose`
+
 ### Number Layer
 
 Cons:
@@ -176,6 +178,8 @@ use numbers and switch back. (barf)
 - There's not any good places left on the keyboard to activate the number layer.
 I myself don't like its placement either but I'm hoping an ergonomic keyboard
 can remedy this.
+
+Found inside `symbols/colejak`
 
 ### Navigation Row
 
@@ -248,7 +252,16 @@ notably annoying in vim's netrw.
 FAQ
 ---
 
+### What are dead keys and Compose keys?
+
+Think of these as combo keys. Dead keys are two-combo keys while the Compose
+key is three-combo key. Dead keys are usually used for international symbols.
+There's three types of combo keys (grave, tilde, acute) - not to be confused
+with the normal grave and tilde keys. For example, pressing `dead_tilde+n`
+outputs ñ.
+
 ### Does this apply to TTY as well?
+
 No. And I don't recommend doing anything this complicated to your TTY
 settings... ***here be dragons***
 
