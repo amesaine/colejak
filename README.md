@@ -227,7 +227,7 @@ Control - Colemak places backspace here. I think that's too good of a
 placement for backspace. I value ergnomics of keyboard shortcuts much more.
 
 Backspace - Keep it on the opposite side of Control for `Control+Backspace`
-on don't make the poor pinkies be responsible for mashing this key.
+and don't make the poor pinkies be responsible for mashing this key.
 
 Right Shift - I previously only used left shift but on this Colejak journey,
 I've come to realize how much more ergonomic having right shift is. Also,
