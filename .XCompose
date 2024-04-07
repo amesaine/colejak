@@ -1,43 +1,57 @@
-// some apps cant read xkb key syms
-// <Multi_key> <k> <y> : less
-// use string literals instead
-
-<dead_grave> <q> : "`"
+<dead_grave> <q> : "`" 
 <dead_grave> <w> : "-"
-<dead_grave> <W> : "+"
+<dead_grave> <W> : "+" # same key as minus 
 <dead_grave> <d> : "="
-<dead_grave> <b> : "%"
-<dead_grave> <l> : "|"
+<dead_grave> <b> : "\\"
+<dead_grave> <p> : ":"
 
-<dead_grave> <t> : "."
-<dead_grave> <T> : "~"
-<dead_grave> <s> : ","
-<dead_grave> <r> : "\""
 <dead_grave> <a> : "_"
-<dead_grave> <f> : ";"
-<dead_grave> <n> : "'"
-<dead_grave> <S> : "#"
-<dead_grave> <R> : "@"
+<dead_grave> <r> : "\""
+<dead_grave> <s> : ","
+<dead_grave> <t> : "."
+<dead_grave> <T> : "~" # `T`ilde
+<dead_grave> <f> : "#" 
 
-<dead_grave> <M> : "^"
-<dead_grave> <N> : "&"
-<dead_grave> <E> : "*"
+<dead_grave> <l> : "|" # l looks like bar
+<dead_grave> <n> : "!"
 
-<dead_grave> <g> : "%"
-<dead_grave> <h> : ":"
+<dead_grave> <g> : ";"
+<dead_grave> <h> : "'"
 
-// --------------------
+# ------------------------------------------------------------------------------
 
+<dead_tilde> <q> : "$" 
 <dead_tilde> <w> : "["
 <dead_tilde> <d> : "]"
-<dead_tilde> <p> : "?"
-<dead_tilde> <b> : "!"
+<dead_tilde> <p> : ">"
+<dead_tilde> <b> : "<"
 
 <dead_tilde> <a> : "{"
 <dead_tilde> <r> : "}"
 <dead_tilde> <s> : "("
 <dead_tilde> <t> : ")"
-<dead_tilde> <f> : "$"
+<dead_tilde> <f> : "%" 
 
-<dead_tilde> <g> : "<"
-<dead_tilde> <h> : ">"
+<dead_tilde> <z> : "@" 
+<dead_tilde> <g> : "&"
+<dead_tilde> <v> : "^"
+<dead_tilde> <h> : "*"
+
+# use ~/.XCompose
+# some apps like browsers don't respect XCOMPOSEFILE
+
+# some apps cant read xkb key syms
+# <Multi_key> <k> <y> : less 
+# use string literals instead
+
+# restart an app for it to read your updated XCompose
+# at worst, logout then login again
+
+# use `#` for comments here in .XCompose instead of //
+# Some weird bugs i encountered are
+    # if you have too many line comments like these, the whole file doesn't work
+
+    # And if you add inline comments to a mapping like so:
+    # <dead_grave> <h> : "'" # i am an inline comment
+    # the mapping doesn't workc
+    

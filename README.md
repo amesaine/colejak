@@ -59,6 +59,13 @@ Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
 Design Decisions
 ----------------
 
+- When referring to the layout's statistical performance, it is measured using 
+Keyboard Layout Analyzer - SteveP's fork. This means that we have yet to take
+into account the usage of modifier, special, arrow, compose, and dead keys.
+
+- The term fingers mean the thumbs are excluded. All 5 fingers on one hand are
+referred to as hand. 
+
 ### Colemak-DH Foundation
 
 Before choosing a layout, I tried creating one from scratch. I ended up with
@@ -228,15 +235,6 @@ to place it!! Also, I originally had it where `Right Shift` is since my Qwerty
 days but here in Colejak, I find myself mixing up `O` and `Enter` alot which is
 notably annoying in vim's netrw.
 
-Notes
------
-
-- When referring to the layout's performance, it is measured using 
-Keyboard Layout Analyzer - SteveP's fork. This means that we have yet to take
-into account the usage of modifier, special, arrow, compose, and dead keys.
-
-- The term fingers mean the thumbs are excluded. All 5 fingers on one hand are
-referred to as hand. 
 
 FAQ
 ---
@@ -251,7 +249,7 @@ TODO
 > [!WARNING]
 >  Subject to Change (Modifier keys, Special Keys, XCompose, Num Layer)
 
-- Add statistics from keyboard layout analyzer
+- Add statistics from keyboard layout analyzer.
 - Indicate sources of character/bigram frequencies. (English + Programming)
 - Add comments in xkb files (experimental features, implementation details)
 - Indicate Num Layer in keyboard previews once its finalized
