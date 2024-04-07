@@ -260,6 +260,17 @@ There's three types of combo keys (grave, tilde, acute) - not to be confused
 with the normal grave and tilde keys. For example, pressing `dead_tilde+n`
 outputs ñ.
 
+### How do I take full advantage of this layout?
+
+- Use vim motions in your editor
+- Install vimium in your browser
+- Use a tiling window manager
+- Install warpd
+
+You'd reach for the mouse maybe 1-20 times a week. And if you're on a
+laptop, the trackpad is literally within thumb's reach. Guaranteed productivity
+gains.
+
 ### Does this apply to TTY as well?
 
 No. And I don't recommend doing anything this complicated to your TTY
