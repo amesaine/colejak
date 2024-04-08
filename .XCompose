@@ -1,4 +1,4 @@
-<dead_grave> <q> : "`" 
+<dead_grave> <q> : "$" 
 <dead_grave> <w> : "-"
 <dead_grave> <W> : "+" # same key as minus 
 <dead_grave> <d> : "="
@@ -20,7 +20,7 @@
 
 # ------------------------------------------------------------------------------
 
-<dead_tilde> <q> : "$" 
+<dead_tilde> <q> : "`" 
 <dead_tilde> <w> : "["
 <dead_tilde> <d> : "]"
 <dead_tilde> <p> : ">"
