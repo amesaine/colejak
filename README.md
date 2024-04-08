@@ -65,7 +65,8 @@ input $kb {
 
 Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
 
-### Target Users
+Target Users
+------------
 
 This layout is made for programmers. As such, it features the following
 caveats:
