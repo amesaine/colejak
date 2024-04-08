@@ -353,6 +353,12 @@ Acknowledgement
 - JSON for all layouts are available in [assets][assets].
 - Layout typing performance measured with [ Keyboard Layout Analyzer - SteveP's fork ][keyboard-layout-analyzer]
 
+### KCX Qwerty
+
+- [ KCX Qwerty ][kcx-qwerty] is my old layout. Improved with modifier/special keys closer to the homerow.
+This instead extends the default `symbols/us(basic)` layout which some may find useful.
+
 [keyboard-layout-editor]: http://www.keyboard-layout-editor.com/
 [assets]: https://github.com/jnz1g/dotfiles/tree/master/.config/xkb/assets
 [keyboard-layout-analyzer]: https://stevep99.github.io/keyboard-layout-analyzer/#/main
+[kcx-qwerty]: https://github.com/jnz1g/kcx-qwerty
