@@ -33,11 +33,11 @@ will be saved as *evdev.xml.bak*
 ```
 git clone https://github.com/jnz1g/colejak
 cd colejak
-mkdir --parents $HOME/.config/xkb/rules
+mkdir --parents $XDG_CONFIG_HOME/.config/xkb/rules
 mkdir $HOME/.config/xkb/symbols
-cp --suffix=.bak rules/* $HOME/.config/xkb/rules/
-cp --suffix=.bak symbols/* $HOME/.config/xkb/symbols/
-cp --suffix=.bak .XCompose ~/.XCompose
+cp --suffix=.bak rules/* $XDG_CONFIG_HOME/.config/xkb/rules/
+cp --suffix=.bak symbols/* $XDG_CONFIG_HOME/.config/xkb/symbols/
+cp --suffix=.bak .XCompose $HOME/.XCompose
 ```
 
 #### Symbolic Link
@@ -47,9 +47,9 @@ git clone https://github.com/jnz1g/colejak
 cd colejak
 mkdir --parents $HOME/.config/xkb/rules
 mkdir $HOME/.config/xkb/symbols
-ln --symbolic --suffix=.bak $(realpath rules) ~/.config/xkb/rules
-ln --symbolic --suffix=.bak $(realpath symbols) ~/.config/xkb/symbols
-ln --symbolic $(realpath .XCompose) ~/.XCompose
+ln --symbolic --suffix=.bak $(realpath rules) $XDG_CONFIG_HOME/xkb/rules
+ln --symbolic --suffix=.bak $(realpath symbols) $XDG_CONFIG_HOME/xkb/symbols
+ln --symbolic $(realpath .XCompose) $HOME/.XCompose
 ```
 
 ### Sway
