@@ -33,10 +33,10 @@ will be saved as *evdev.xml.bak*
 ```
 git clone https://github.com/jnz1g/colejak
 cd colejak
-mkdir --parents $XDG_CONFIG_HOME/.config/xkb/rules
-mkdir $HOME/.config/xkb/symbols
-cp --suffix=.bak rules/* $XDG_CONFIG_HOME/.config/xkb/rules/
-cp --suffix=.bak symbols/* $XDG_CONFIG_HOME/.config/xkb/symbols/
+mkdir --parents $XDG_CONFIG_HOME/xkb/rules
+mkdir $XDG_CONFIG_HOME/xkb/symbols
+cp --suffix=.bak rules/* $XDG_CONFIG_HOME/xkb/rules/
+cp --suffix=.bak symbols/* $XDG_CONFIG_HOME/xkb/symbols/
 cp --suffix=.bak .XCompose $HOME/.XCompose
 ```
 
