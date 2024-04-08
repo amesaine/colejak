@@ -1,4 +1,4 @@
-Colejak
+Colejak 
 =======
 
 The programmer's layout.
@@ -64,6 +64,21 @@ input $kb {
 ### GNOME
 
 Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
+
+### Target Users
+
+This layout is made for programmers. As such, it features the following
+caveats:
+
+- Optimized for English.
+- Uses custom dead key mappings for all symbols.
+- Setting up would be easiest on linux or a highly customizable keyboard
+firmware like QMK.
+- Unofficially supported everywhere.
+- High initial learning curve (100 hours minimum).
+
+Recognize if such hyper-optimization is crucial to your workflow. Otherwise,
+Dvorak, Colemak, Colemak-DH is highly recommended.
 
 Design Decisions
 ----------------
