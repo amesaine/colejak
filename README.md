@@ -75,8 +75,7 @@ caveats:
 - Uses custom dead key mappings for all symbols.
 - Setting up would be easiest on linux or a highly customizable keyboard
 firmware like QMK.
-- Unofficially supported everywhere.
-- High initial learning curve (100 hours minimum).
+- Extreme initial learning curve (100 hours minimum).
 
 Recognize if such hyper-optimization is crucial to your workflow. Otherwise,
 Dvorak, Colemak, Colemak-DH is highly recommended.
