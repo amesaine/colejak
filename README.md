@@ -325,9 +325,6 @@ Contribution
 - A better num layer?
 - Issues about the documentation are encouraged. (Something is confusing or
 calls for a more in-depth explanation)
-- If you find other quirks or use cases to keep in mind, discussions is the place
-to go.
-- Good and bad ideas are welcome!
 
 Resources
 ---------
