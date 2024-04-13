@@ -15,8 +15,8 @@
 <dead_grave> <l> : "|" # l looks like bar
 <dead_grave> <n> : "!"
 
-<dead_grave> <g> : ";"
-<dead_grave> <h> : "'"
+<dead_grave> <c> : "'"
+<dead_grave> <h> : ";"
 
 # ------------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
 <dead_tilde> <f> : "%" 
 
 <dead_tilde> <z> : "@" 
-<dead_tilde> <g> : "&"
+<dead_tilde> <c> : "&"
 <dead_tilde> <v> : "^"
 <dead_tilde> <h> : "*"
 
