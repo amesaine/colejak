@@ -95,9 +95,9 @@ xkb_symbols "default" {
 
     key <AB01> {	[	  z,	Z 		]	};
     key <AB02> {	[	  x,	X		]	};
-    key <AB03> {	[	  c,	C		]	};
-    key <AB04> {	[	  g,	G, NoSymbol, NoSymbol, 0,	0	]	};
-    key <AB05> {	[	  v,	V		]	};
+    key <AB03> {	[	  v,	V		]	};
+    key <AB04> {	[	  c,	C, NoSymbol, NoSymbol, 0,	0	]	};
+    key <AB05> {	[	  g,	G		]	};
     key <AB06> {	[	  h,	H ]	};
     key <AB07> {	[     k,	K ]	};
     key <AB08> { type[Group1]="TWO_LEVEL",  [ dead_tilde, question ]	};
