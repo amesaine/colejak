@@ -34,7 +34,7 @@ will be saved as *evdev.xml.bak*
 git clone https://github.com/jnz1g/colejak
 cd colejak
 mkdir --parents $HOME/.config/xkb/rules
-mkdir $HOME/.config/xkb/symbols
+mkdir --parents $HOME/.config/xkb/symbols
 cp --suffix=.bak rules/* $HOME/.config/xkb/rules/
 cp --suffix=.bak symbols/* $HOME/.config/xkb/symbols/
 cp --suffix=.bak .XCompose $HOME/.XCompose
@@ -46,7 +46,7 @@ cp --suffix=.bak .XCompose $HOME/.XCompose
 git clone https://github.com/jnz1g/colejak
 cd colejak
 mkdir --parents $HOME/.config/xkb/rules
-mkdir $HOME/.config/xkb/symbols
+mkdir --parents $HOME/.config/xkb/symbols
 ln --symbolic --suffix=.bak $(realpath rules) $HOME/.config/xkb/rules
 ln --symbolic --suffix=.bak $(realpath symbols) $HOME/.config/xkb/symbols
 ln --symbolic --suffix=.bak $(realpath .XCompose) $HOME/.XCompose
