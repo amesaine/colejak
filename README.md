@@ -1,7 +1,7 @@
 Colejak 
 =======
 
-The programmer's layout.
+A keyboard layout for programmers.
 
 - Colemak-DH foundation
 - Improved for thumb typing
