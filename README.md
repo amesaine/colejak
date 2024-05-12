@@ -19,10 +19,8 @@ https://github.com/amesaine/colejak/blob/main/assets/colejak.png)
 https://github.com/amesaine/colejak/blob/main/assets/colejak-finger-placement.png)
 
 
-Quickstart
-----------
-
-### Installation
+Linux
+-----
 
 > [!NOTE]
 > These will overwrite existing destination files. Your original files such as *evdev.xml*
@@ -31,7 +29,7 @@ will be saved as *evdev.xml.bak*
 #### Copy
 
 ```
-git clone https://github.com/amesaine/colejak
+git clone --filter=blob:none https://github.com/amesaine/colejak
 cd colejak
 mkdir --parents $HOME/.config/xkb
 cp --suffix=.bak rules/* $HOME/.config/xkb/rules/
@@ -51,33 +49,156 @@ ln --symbolic --suffix=.bak $(realpath symbols) $HOME/.config/xkb/symbols
 ln --symbolic --suffix=.bak $(realpath .XCompose) $HOME/.XCompose
 ```
 
+<details>
+<summary>Sway</summary>
+
 ### Sway
 
 ```
-set $kb "1:1:AT_Translated_Set_2_keyboard"
-input $kb {
-    colejak(default)
+input type:keyboard {
+    xkb_layout colejak(default)
 }
 ```
 
-### GNOME
+</details>
+
+
+<details>
+<summary>Gnome</summary>
+
+### Gnome
 
 Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
+
+</details>
+
+Windows
+-------
+
+***TODO***
+
+
+Recommended Application Remaps 
+------------------------------
+
+
+<details>
+<summary>Neovim</summary>
+
+### Neovim
+
+[My neovim config](https://github.com/amesaine/init.lua)
+
+#### Remaps
+
+```lua
+-------- IMPROVING FUNCTIONALITY --------
+
+local override = function(modes, default, new, custom_behavior)
+    local behavior = default
+    if custom_behavior then
+        behavior = custom_behavior
+    end
+    vim.keymap.set(modes, default, "<nop>")
+    vim.keymap.set(modes, new, behavior, { noremap = true })
+end
+
+
+override({ "n", "v", "o" }, "b", "<C-Left>")
+override({ "n", "v", "o" }, "B", "<S-Left>")
+override({ "n", "v", "o" }, "w", "<C-Right>")
+override({ "n", "v", "o" }, "W", "<S-Right>")
+
+
+override({ "n", "v" }, "<C-D>", "<S-Down>", "<C-D>zz")
+override({ "n", "v" }, "<C-U>", "<S-Up>", "<C-U>zz")
+
+
+vim.keymap.set({ "n", "v", "o" }, "<Home>", "^", { noremap = true })
+vim.keymap.set({ "i" }, "<Home>", "<C-o>^", { noremap = true })
+override({ "n", "v", "o" }, "gg", "<C-Home>")
+override({ "n", "v", "o" }, "G", "<C-End>")
+
+override({ "i", "c" }, "<C-W>", "<C-H>")
+override({ "i", "c" }, "<C-W>", "<C-BS>")
+
+
+override("n", "x", "<BS>", "<Left>x")
+override("v", "x", "<BS>")
+
+-------- NEW FUNCTIONALITY --------
+
+vim.keymap.set({ "n" }, "<C-H>", "db")
+vim.keymap.set({ "n" }, "<C-BS>", "db")
+
+vim.keymap.set({ "n" }, "<C-Del>", "dw")
+vim.keymap.set({ "n" }, "<S-Del>", "dW")
+vim.keymap.set({ "i" }, "<C-Del>", "<Esc><Right>dwi")
+```
+
+</details>
+
+
+<details>
+<summary>Vimium</summary>
+
+### Vimium
+
+#### Remaps
+
+```
+unmapAll
+
+map <down> scrollDown
+map <up> scrollUp
+map <s-right> scrollRight
+map <s-left> scrollLeft
+map <home> scrollToTop
+map <end> scrollToBottom
+map <s-down> scrollPageDown
+map <s-up> scrollPageUp
+
+
+# focusing
+map se focusInput
+map t LinkHints.activateMode
+map T LinkHints.activateModeWithQueue
+map yt  LinkHints.activateModeToCopyLinkUrl
+
+# tabs
+map <left> previousTab
+map <right> nextTab
+map <c-left> moveTabLeft
+map <c-right> moveTabRight
+
+# find mode
+map / enterFindMode
+map n performFind
+map N performBackwardsFind
+
+map ? showHelp
+```
+
+#### Characters used for hints
+
+```
+arschneio
+```
+
+</details>
+
 
 Target Users
 ------------
 
-This layout is made for programmers. As such, it features the following
+This layout is hyper-optimized for programmers. As such, it features the following
 caveats:
 
 - Optimized for English.
 - Uses custom dead key mappings for all symbols.
 - Setting up would be easiest on linux or a highly customizable keyboard
 firmware like QMK.
-- Extreme initial learning curve (100 hours minimum).
-
-Recognize if such hyper-optimization is crucial to your workflow. Otherwise,
-Dvorak, Colemak, Colemak-DH is highly recommended.
+- Extreme initial learning curve (A minimum of 72hrs typing test + 48hrs real world usage).
 
 Design Decisions
 ----------------
@@ -316,14 +437,7 @@ TODO
 - Add comments in xkb files (experimental features, implementation details)
 - Indicate Num Layer in keyboard previews once its finalized
 - Contribute layout to monkeytype
-
-Contribution
-------------
-
-- Optimize the .XCompose mappings.
-- A better num layer?
-- Issues about the documentation are encouraged. (Something is confusing or
-calls for a more in-depth explanation)
+- Provide windows layout
 
 Resources
 ---------
