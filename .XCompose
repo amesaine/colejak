@@ -1,6 +1,5 @@
 <dead_grave> <q> : "$" 
 <dead_grave> <w> : "-"
-<dead_grave> <W> : "+" # same key as minus 
 <dead_grave> <d> : "="
 <dead_grave> <b> : "\\"
 <dead_grave> <p> : ":"
@@ -9,22 +8,24 @@
 <dead_grave> <r> : "\""
 <dead_grave> <s> : ","
 <dead_grave> <t> : "."
-<dead_grave> <T> : "~" # `T`ilde
-<dead_grave> <f> : "#" 
 
-<dead_grave> <l> : "|" # l looks like bar
+<dead_grave> <l> : "|" 
 <dead_grave> <n> : "!"
 
+<dead_grave> <z> : "@" 
+<dead_grave> <v> : "^"
 <dead_grave> <c> : "'"
 <dead_grave> <h> : ";"
+
 
 # ------------------------------------------------------------------------------
 
 <dead_tilde> <q> : "`" 
+<dead_tilde> <Q> : "```" 
 <dead_tilde> <w> : "["
 <dead_tilde> <d> : "]"
 <dead_tilde> <p> : ">"
-<dead_tilde> <b> : "<"
+<dead_tilde> <b> : "&"
 
 <dead_tilde> <a> : "{"
 <dead_tilde> <r> : "}"
@@ -32,10 +33,14 @@
 <dead_tilde> <t> : ")"
 <dead_tilde> <f> : "%" 
 
-<dead_tilde> <z> : "@" 
-<dead_tilde> <c> : "&"
-<dead_tilde> <v> : "^"
+<dead_tilde> <c> : "<"
 <dead_tilde> <h> : "*"
+
+# ------------------------------------------------------------------------------
+
+<Multi_key> <t> <d>: "~"
+<Multi_key> <p> <l>: "+"
+<Multi_key> <h> <t>: "#"
 
 # use ~/.XCompose
 # some apps like browsers don't respect XCOMPOSEFILE
@@ -49,7 +54,7 @@
 
 # use `#` for comments here in .XCompose instead of //
 # Some weird bugs i encountered are
-    # if you have too many line comments like these, the whole file doesn't work
+    # if you have too many line // comments, the whole file doesn't work
 
     # And if you add inline comments to a mapping like so:
     # <dead_grave> <h> : "'" # i am an inline comment

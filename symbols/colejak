@@ -24,7 +24,7 @@ xkb_symbols "default" {
 
     key <LCTL> { [ NoSymbol ] };
     key <TLDE> {	[     grave,	tilde	]	};
-    key <AE01> {	[ NoSymbol ] };
+    key <AE01> {	[ Multi_key ] };
     // setting the type prevents situations where the shift layer behavior
     // of the original key is retained.
     key <AE02> {	type[Group1] = "ONE_LEVEL", [ Home ]	};
@@ -103,7 +103,7 @@ xkb_symbols "default" {
     key <AB08> { type[Group1]="TWO_LEVEL",  [ dead_tilde, question ]	};
     key <AB09> { type[Group1]="TWO_LEVEL", [ dead_grave, slash ] };
     key <AB10> { type[Group1] = "ONE_LEVEL", [ Super_R ] };
-    key <RTSH> { [ slash, Multi_key ] };
+    key <RTSH> { [ slash ] };
 
     // There's ways to set this up where if you press and release the key quickly,
     // it acts as Escape. On vanilla linux though, you need a separate program for
