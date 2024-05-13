@@ -78,18 +78,14 @@ Windows
 ***TODO***
 
 
-Recommended Application Remaps 
+Application Remaps (Optional)
 ------------------------------
 
 
 <details>
 <summary>Neovim</summary>
 
-### Neovim
-
-[My neovim config](https://github.com/amesaine/init.lua)
-
-#### Remaps
+### Remaps
 
 ```lua
 -------- IMPROVING FUNCTIONALITY --------
@@ -136,15 +132,17 @@ vim.keymap.set({ "n" }, "<S-Del>", "dW")
 vim.keymap.set({ "i" }, "<C-Del>", "<Esc><Right>dwi")
 ```
 
+### Amesaine Neovim Config
+
+https://github.com/amesaine/init.lua
+
 </details>
 
 
 <details>
 <summary>Vimium</summary>
 
-### Vimium
-
-#### Remaps
+### Remaps
 
 ```
 unmapAll
@@ -179,13 +177,28 @@ map N performBackwardsFind
 map ? showHelp
 ```
 
-#### Characters used for hints
+### Characters used for hints
 
 ```
 arschneio
 ```
 
 </details>
+
+<details>
+<summary>Lesskey</summary>
+
+```
+#command
+\kl goto-line # left
+\e[1;2B forw-scroll # shift down 
+\e[1;2A back-scroll # shift up
+\kr goto-end # right
+h quit
+
+```
+</details>
+
 
 
 Target Users
