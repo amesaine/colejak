@@ -13,6 +13,8 @@ ANSI keyboard layout for programmers.
 ![Layout preview](
 https://github.com/amesaine/colejak/blob/main/assets/colejak.png)
 
+### Finger Placements
+
 ![Layout finger placements](
 https://github.com/amesaine/colejak/blob/main/assets/colejak-finger-placement.png)
 
@@ -24,7 +26,7 @@ Linux
 > These will overwrite existing destination files. Your original files such as *evdev.xml*
 will be saved as *evdev.xml.bak*
 
-#### Copy
+### Copy
 
 ```
 git clone --filter=blob:none https://github.com/amesaine/colejak
@@ -35,7 +37,7 @@ cp --suffix=.bak symbols/* $HOME/.config/xkb/symbols/
 cp --suffix=.bak .XCompose $HOME/.XCompose
 ```
 
-#### Symbolic Link
+### Symbolic Link
 
 ```
 git clone https://github.com/amesaine/colejak
@@ -50,8 +52,6 @@ ln --symbolic --suffix=.bak $(realpath .XCompose) $HOME/.XCompose
 <details>
 <summary>Sway</summary>
 
-### Sway
-
 ```
 input type:keyboard {
     xkb_layout colejak(default)
@@ -63,8 +63,6 @@ input type:keyboard {
 
 <details>
 <summary>Gnome</summary>
-
-### Gnome
 
 Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
 
