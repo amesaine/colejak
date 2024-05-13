@@ -1,15 +1,13 @@
 Colejak 
 =======
 
-A keyboard layout for programmers.
+ANSI keyboard layout for programmers.
 
 - Colemak-DH foundation
 - Improved for thumb typing
-- Evens out left/right usage imbalance
-- Homerow symbols through dead keys
+- Dead keys for symbols
+- Navigation row
 - Number Layer
-- Navigation row enabling app-agnostic and layout-agnostic Vim motions
-- Created for run-of-the-mill staggered keyboards first
 - Optimized keyboard shortcut ergonomics
 
 ![Layout preview](
