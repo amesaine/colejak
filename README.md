@@ -1,14 +1,14 @@
 Colejak 
 =======
 
-ANSI keyboard layout for programmers.
+ANSI keyboard layout to maximize actions per minute.
 
 - Colemak-DH foundation
 - Improved for thumb typing
-- Dead keys for symbols
+- Better-placed modifier keys
 - Navigation row
+- Dead keys for symbols
 - Number Layer
-- Optimized keyboard shortcut ergonomics
 
 ![Layout preview](
 https://github.com/amesaine/colejak/blob/main/assets/colejak.png)
@@ -18,6 +18,10 @@ https://github.com/amesaine/colejak/blob/main/assets/colejak.png)
 ![Layout finger placements](
 https://github.com/amesaine/colejak/blob/main/assets/colejak-finger-placement.png)
 
+### Dead Key Mappings
+
+![Layout dead key mappings](
+https://github.com/amesaine/colejak/blob/main/assets/colejak-xcompose.png)
 
 Linux
 -----
@@ -29,9 +33,10 @@ will be saved as *evdev.xml.bak*
 ### Copy
 
 ```
-git clone --filter=blob:none https://github.com/amesaine/colejak
+git clone --filter=blob:none --depth=1 https://github.com/amesaine/colejak
 cd colejak
-mkdir --parents $HOME/.config/xkb
+mkdir --parents $HOME/.config/xkb/rules
+mkdir --parents $HOME/.config/xkb/symbols
 cp --suffix=.bak rules/* $HOME/.config/xkb/rules/
 cp --suffix=.bak symbols/* $HOME/.config/xkb/symbols/
 cp --suffix=.bak .XCompose $HOME/.XCompose
@@ -42,8 +47,7 @@ cp --suffix=.bak .XCompose $HOME/.XCompose
 ```
 git clone https://github.com/amesaine/colejak
 cd colejak
-mkdir --parents $HOME/.config/xkb/rules
-mkdir --parents $HOME/.config/xkb/symbols
+mkdir --parents $HOME/.config/xkb
 ln --symbolic --suffix=.bak $(realpath rules) $HOME/.config/xkb/rules
 ln --symbolic --suffix=.bak $(realpath symbols) $HOME/.config/xkb/symbols
 ln --symbolic --suffix=.bak $(realpath .XCompose) $HOME/.XCompose
@@ -68,15 +72,8 @@ Search for *Colejak* in `gnome-control-center > Keyboard > Input Sources`
 
 </details>
 
-Windows
--------
-
-***TODO***
-
-
 Application Remaps (Optional)
 ------------------------------
-
 
 <details>
 <summary>Neovim</summary>
@@ -84,51 +81,45 @@ Application Remaps (Optional)
 ### Remaps
 
 ```lua
--------- IMPROVING FUNCTIONALITY --------
-
-local override = function(modes, default, new, custom_behavior)
+local override = function(modes, new, default, desc, custom_behavior)
     local behavior = default
     if custom_behavior then
         behavior = custom_behavior
     end
+
     vim.keymap.set(modes, default, "<nop>")
-    vim.keymap.set(modes, new, behavior, { noremap = true })
+    vim.keymap.set(modes, new, behavior, { desc = desc })
 end
 
+override({ "n", "v", "o" }, "<C-Y>", "<C-R>", "Redo")
+vim.keymap.set("n", "<C-S>", "<CMD>w<CR>", { desc = "Save File" })
+vim.keymap.set("i", "<C-S>", "<ESC><CMD>w<CR>", { desc = "Save File" })
+vim.keymap.set("n", "<C-Q>", "<CMD>q<CR>", { desc = "Quit Pane" })
+vim.keymap.set("n", "<C-S-Q>", "<CMD>qa!<CR>", { desc = "Force Quit Vim" })
 
-override({ "n", "v", "o" }, "b", "<C-Left>")
-override({ "n", "v", "o" }, "B", "<S-Left>")
-override({ "n", "v", "o" }, "w", "<C-Right>")
-override({ "n", "v", "o" }, "W", "<S-Right>")
+override({ "n", "v", "o" }, "<C-Left>", "b", "Jump previous word")
+override({ "n", "v", "o" }, "<S-Left>", "B", "Jump previous whitespace")
+override({ "n", "v", "o" }, "<C-Right>", "w", "Jump next word")
+override({ "n", "v", "o" }, "<S-Right>", "W", "Jump next whitespace")
 
+override({ "n", "v", "o" }, "<C-Home>", "gg", "Jump first line")
+override({ "n", "v", "o" }, "<C-End>", "G", "Jump last line")
+vim.keymap.set({ "n", "v", "o" }, "<Home>", "^", { desc = "Jump to first char of current line" })
+vim.keymap.set({ "i" }, "<Home>", "<C-o>^", { desc = "Jump to first char of current line" })
 
-override({ "n", "v" }, "<C-D>", "<S-Down>", "<C-D>zz")
-override({ "n", "v" }, "<C-U>", "<S-Up>", "<C-U>zz")
+override({ "i", "c" }, "<C-H>", "<C-W>", "Kill word before cursor")
+vim.keymap.set({ "n" }, "<C-H>", "db", { desc = "Kill word before cursor" })
+vim.keymap.set({ "n" }, "<C-BS>", "db", { desc = "Kill word before cursor" })
+override({ "i", "c" }, "<C-BS>", "<C-W>", "Kill word before cursor")
+vim.keymap.set({ "i" }, "<C-Del>", "<Esc><Right>dwi", { desc = "Kill next word from cursor" })
+vim.keymap.set({ "n" }, "<C-Del>", "dw", { desc = "Kill next word from cursor" })
+vim.keymap.set({ "n" }, "<S-Del>", "dW", { desc = "Kill to whitespace from cursor" })
 
-
-vim.keymap.set({ "n", "v", "o" }, "<Home>", "^", { noremap = true })
-vim.keymap.set({ "i" }, "<Home>", "<C-o>^", { noremap = true })
-override({ "n", "v", "o" }, "gg", "<C-Home>")
-override({ "n", "v", "o" }, "G", "<C-End>")
-
-override({ "i", "c" }, "<C-W>", "<C-H>")
-override({ "i", "c" }, "<C-W>", "<C-BS>")
-
-
-override("n", "x", "<BS>", "<Left>x")
-override("v", "x", "<BS>")
-
--------- NEW FUNCTIONALITY --------
-
-vim.keymap.set({ "n" }, "<C-H>", "db")
-vim.keymap.set({ "n" }, "<C-BS>", "db")
-
-vim.keymap.set({ "n" }, "<C-Del>", "dw")
-vim.keymap.set({ "n" }, "<S-Del>", "dW")
-vim.keymap.set({ "i" }, "<C-Del>", "<Esc><Right>dwi")
+override("n", "<BS>", "x", "Kill char before cursor", "<Left>x")
+override("v", "<BS>", "x", "Remap x to Backspace")
 ```
 
-### Amesaine Neovim Config
+### My Neovim Config
 
 https://github.com/amesaine/init.lua
 
@@ -143,6 +134,7 @@ https://github.com/amesaine/init.lua
 ```
 unmapAll
 
+map h scrollLeft
 map <down> scrollDown
 map <up> scrollUp
 map <s-right> scrollRight
@@ -153,22 +145,18 @@ map <s-down> scrollPageDown
 map <s-up> scrollPageUp
 
 
-# focusing
+#focusing
 map se focusInput
 map t LinkHints.activateMode
 map T LinkHints.activateModeWithQueue
 map yt  LinkHints.activateModeToCopyLinkUrl
 
-# tabs
+#tabs
 map <left> previousTab
 map <right> nextTab
 map <c-left> moveTabLeft
 map <c-right> moveTabRight
-
-# find mode
-map / enterFindMode
-map n performFind
-map N performBackwardsFind
+map wt moveTabToNewWindow
 
 map ? showHelp
 ```
@@ -176,13 +164,13 @@ map ? showHelp
 ### Characters used for hints
 
 ```
-arschneio
+nplseriaocm
 ```
 
 </details>
 
 <details>
-<summary>Lesskey</summary>
+<summary>Lesskey (Man Pages)</summary>
 
 ```
 #command
@@ -195,87 +183,8 @@ h quit
 ```
 </details>
 
-
-
-Target Users
-------------
-
-This layout is hyper-optimized for programmers. As such, it features the following
-caveats:
-
-- Optimized for English.
-- Uses custom dead key mappings for all symbols.
-- Setting up would be easiest on linux or a highly customizable keyboard
-firmware like QMK.
-- Extreme initial learning curve (A minimum of 72hrs typing test + 48hrs real world usage).
-
-Design Decisions
-----------------
-
-- When referring to the layout's statistical performance, it is measured using 
-Keyboard Layout Analyzer - SteveP's fork. This means that we have yet to take
-into account the usage of modifier, special, arrow, compose, and dead keys.
-
-- The term fingers mean the thumbs are excluded. All 5 fingers on one hand are
-referred to as hand. 
-
-### Colemak-DH Foundation
-
-Before choosing a layout, I tried creating one from scratch. I ended up with
-something similar to Colemak. I decided to go with Colemak-DH for 2 reasons:
-
-- The middle two keys are somewhat exhaustive to reach for and is especially uncomfortable
-with certain same-hand homerow bigrams.
-- The new placements of DH take better advantage of thumb typing.
-
-### H/K Swap
-
-KH is only a problem with thumb typing as it places the uncommon K directly
-under the thumb and vice versa.
-
-### DFG Rearrangement
-
-The left hand of Colemak-DH feels noticeably more awkward compared to the right
-side due to:
-
-- Imbalanced left/right finger usage (thumb excluded)
-- Overloaded left thumb
-- Underutilized left middle finger especially when compared to its right side
-counterpart
-- Newfound growing pains with G previously non-existent in qwerty.
-
-#### The F key
-
-The biggest culprit for the finger imbalance, especially in the middle finger pair,
-is the overzealous placement of `F`. Based on various sources, it's not in the top 10
-most used letters. Compare this to its right sibling which has E, the most
-common letter by a landslide, and U, the least common vowel. 
-
-The left middle key a.k.a G was the #1 candidate. I didn't like G's current
-placement and I've tried G where F was when I was designing a layout from
-scratch. After 24 hours of typing tests, I've not found any awkward bigrams or
-word sequences, thus F found its new home. A secondary benefit is that we've lowered the usage of the
-borderline overloaded left pointer finger.
-
-We've improved the left middle finger usage but the total left/right finger 
-usage imbalance remains as we only swapped existing keys around. We need to take
-a key from the thumbs or right side to see concrete differences.
-
-#### The G and D keys
-
-Finding candidates to swap with G, we take a look first at D.
-
-D is the reason why the left thumb is overloaded. Beyond just the percentage
-utilization of the left thumb, we also take into account its finger travel. Since
-its keys are spread horizontally, any increases in usage is dramatically felt.
-In other words, my left thumb was constantly jumping around. Another benefit for
-D is that SD is one of the few uncommon bigrams for S.
-
-Perfect. Let's kill two birds with one stone. By swapping G and D, we lower left
-thumb usage but kept it high enough to make gains over thumb typing in qwerty
-and we balance out total left/right finger usage. (that's a lie, right side
-still does 5% more work but this IMO is acceptable and there's more ways
-to balance it out further)
+Design
+------
 
 ### Using Dead Keys for All Symbols
 
@@ -293,7 +202,7 @@ tilde, acute) so hopefully you don't run out lol.
 - Some browsers don't respect .XCompose (Firefox LTS on Debian). It does work
 in Brave though.
 
-This is a tradeoff that I'm willing to take for:
+This is a tradeoff for:
 
 - Significant increase in accuracy
 - Fingers stay at/near homerow
@@ -304,24 +213,17 @@ Things to take note of:
 as it's the symbol alone. This means typing ":" in vim through dead keys
 still bring up the command line. In some websites however, this is finicky. 
 (Discussed later)
-- A lot of symbol keys near the right pinky and some keys on the number row
-are left unchanged. Take advantage of these to suit your needs.
 
 Found inside `.XCompose`
 
 ### Number Layer
 
-Cons:
-
-- `Modifer key + number` such as `Ctrl + 1` won't work with this layer. A workaround
+`Modifier_key + number` such as `Ctrl + 1` won't work with this layer. A workaround
 would be to have a Colejak variant. A.k.a you switch layouts everytime you want to
-use numbers and switch back. (barf) 
+use to `Modifier_key + number` and switch back. 
+
 > [!NOTE]
 > On Sway, you can add `Mod5` to your config. `Mod4 + 1` -> `Mod4 + Mod5 + 1`
-
-- There's not any good places left on the keyboard to activate the number layer.
-I myself don't like its placement either but I'm hoping an ergonomic keyboard
-can remedy this.
 
 Found inside `symbols/colejak`
 
@@ -342,67 +244,19 @@ Especially within textboxes, here are available motions beyond hjkl:
 - Start/End of textbox - `Control+Home` / `Control+End`
 - Visual mode  - Hold shift while doing all the goodies above.
 
-Honestly, this is my favorite feature of the layout. If I somehow go back to qwerty,
-I'd still implement this.
-
-### Slash, Multi_key
-
-- A quirk to know about symbols is that the layer they are in for qwerty matters
-alot in the consistency of their keybind behavior across various applications. I tried
-placing Escape on the shift layer. Sometimes, apps see this as `Shift+Escape`
-and noop it which forces you to reach for the original Escape anyway. Since slash
-is on `Shift+dead_grave`, I gave it another key where its on the base layer. Although
-I've never had behavior consistency troubles with slash on the shift layer.
-
-- There's no Multi_key in the .XCompose file but I put it here since I have nothing
-else to place here. If you need it, here you go.
-
-> [!NOTE]
-> You can find more quirks and how they affect implementation and design decisions
-in the source files' comments.
-
-### Control, 2 Shifts, Enter, Backspace, Del, Escape
-
-These are the modifier and special keys that I consider essential. There's
-no philosophy behind the placements beyond finding the least inconvenient one.
-Here's what I kept in mind while juggling these.
-
-Control - Colemak places backspace here. I think that's too good of a
-placement for backspace. I value ergnomics of keyboard shortcuts much more.
-
-Backspace - Keep it on the opposite side of Control for `Control+Backspace`
-and don't make the poor pinkies be responsible for mashing this key.
-
-Right Shift - I previously only used left shift but on this Colejak journey,
-I've come to realize how much more ergonomic having right shift is. Also,
-keep it near the arrows for `Control+Shift+Arrows`
-
-Escape - Keep it near the arrows because when I only have one-hand on the 
-keyboard, I often find my cursor still focused in some ui element.
-
-Delete - Keep it somewhat out of way so that if im in my file
-manager, I don't just accidentally nuke a folder/file.
-
-Right Control - It was either this or Right Shift. I felt that Right Shift had
-much more ergonomics than what Right Control had to offer. Most keyboard shortcuts
-from qwerty have left control in mind anyway.
-
-Enter - Just trust me on this one. It's actually decent lol. There's nowhere else
-to place it!! Also, I originally had it where `Right Shift` is since my Qwerty
-days but here in Colejak, I find myself mixing up `O` and `Enter` alot which is
-notably annoying in vim's netrw.
-
-
 FAQ
 ---
 
 ### What are dead keys and Compose keys?
 
-Think of these as combo keys. Dead keys are two-combo keys while the Compose
-key is three-combo key. Dead keys are usually used for international symbols.
-There's three types of combo keys (grave, tilde, acute) - not to be confused
-with the normal grave and tilde keys. For example, pressing `dead_tilde+n`
-outputs ñ.
+Dead Keys and the Compose Key are special "combo keys" that allow you to type 
+a character by combining multiple key presses. Dead Keys are two-combo keys, 
+commonly used for international symbols and diacritical marks, and come in types 
+such as grave, tilde, and acute, which should not be confused with the standard 
+grave and tilde keys. When pressed followed by a letter, they produce a special 
+character, like `dead_tilde + n` outputting `ñ`. Unlike the Shift key, which modifies 
+the next key press only when held down simultaneously, Dead Keys modify the next 
+key press even after they've been released.
 
 ### How do I take full advantage of this layout?
 
@@ -412,41 +266,37 @@ outputs ñ.
 - Install warpd
 
 You'd reach for the mouse maybe 1-20 times a week. And if you're on a
-laptop, the trackpad is literally within thumb's reach. Guaranteed productivity
+laptop, the trackpad is within thumb's reach. Guaranteed productivity
 gains.
 
-### How would I go about practicing this layout?
+### Recommended Practice Routine
 
-- I did it in 3 weeks with my brain turned off. Literally just typed my brains out.
-I average 100wpm after 50 hours of typing tests. Add about 10 hours more to get 
-used to keyboard shortcuts. Here's how I did it.
+I did it in 3 weeks just typing my brains out,
+averaging 100 wpm after 50 hours of typing tests. Here's how:
 
-    - Monkeytype English until 50 wpm average.
-    - Keybr. Apply these settings (a) 60 wpm target speed. (b) Unlock next key only 
-    when the previous keys are also above the target speed. Beat all letters.
-    - Monkeytype English 5k until 80 wpm average.
-    - PR 132 wpm on Monkeytype English.
-    - Monkeytype code rust for numbers and symbols
-    - Monkeytype quotes
-    - Monkeytype code javascript for common programming words
+- Monkeytype English until 50 wpm average.
+- Keybr. Apply these settings: 
+    - 60 wpm target speed. 
+    - Unlock next key only when the previous keys are also above the target speed. 
+    - Beat all letters.
+- Monkeytype `English 5k` until 80 wpm average.
+- PR 132 wpm on `Monkeytype English`.
+- Diversify wordsets
+    - Monkeytype `code rust` for numbers and symbols
+    - Monkeytype `quotes`
+    - Monkeytype `code javascript` for common programming words
 
 ### Does this apply to TTY as well?
 
 No. And I don't recommend doing anything this complicated to your TTY
 settings... ***here be dragons***
 
-TODO
-----
+Motivation
+----------
 
-> [!WARNING]
->  Subject to Change (Modifier keys, Special Keys, XCompose, Num Layer)
-
-- Add statistics from keyboard layout analyzer.
-- Indicate sources of character/bigram frequencies. (English + Programming)
-- Add comments in xkb files (experimental features, implementation details)
-- Indicate Num Layer in keyboard previews once its finalized
-- Contribute layout to monkeytype
-- Provide windows layout
+I don't have money for a $400 ergonomic keyboard. Also, maximizing ergonomics
+within the constraint of an ANSI layout means that this is guaranteed to work and feel better
+on an ortholinear, split, or whatever keyboard as is.
 
 Resources
 ---------
@@ -473,7 +323,6 @@ Acknowledgement
 ### Keyboard Layout Pictures
 - Created with [keyboard-layout-editor.com][keyboard-layout-editor]. 
 - JSON for all layouts are available in [assets][assets].
-- Layout typing performance measured with [ Keyboard Layout Analyzer - SteveP's fork ][keyboard-layout-analyzer]
 
 ### KCX Qwerty
 

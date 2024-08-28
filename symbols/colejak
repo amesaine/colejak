@@ -20,11 +20,11 @@ xkb_symbols "default" {
     key.type[Group1] = "EIGHT_LEVEL";
 
     // cant use NoSymbol to noop original Esc
-    key <ESC> { [ Alt_R ] };
+    key <ESC> { [ Print ] };
 
     key <LCTL> { [ NoSymbol ] };
-    key <TLDE> {	[     grave,	tilde	]	};
-    key <AE01> {	[ Multi_key ] };
+    key <TLDE> {	[ NoSymbol  ] };
+    key <AE01> {	[ NoSymbol  ] };
     // setting the type prevents situations where the shift layer behavior
     // of the original key is retained.
     key <AE02> {	type[Group1] = "ONE_LEVEL", [ Home ]	};
@@ -32,85 +32,77 @@ xkb_symbols "default" {
     key <AE04> {	type[Group1] = "ONE_LEVEL", [ End]	};
     key <AE05> {	type[Group1] = "ONE_LEVEL", [ Delete ]	};  
     key <AE06> {	[ NoSymbol ]	};
-    key <AE07> {	type[Group1] = "ONE_LEVEL", [ Left ]	};
-    key <AE08> {	type[Group1] = "ONE_LEVEL", [ Down ]	};
-    key <AE09> {	type[Group1] = "ONE_LEVEL", [ Up ]	};
-    key <AE10> {	type[Group1] = "ONE_LEVEL", [ Right ]	};
-    key <AE11> {	[     minus,	underscore	]	};
-    key <AE12> {	[     equal,	plus		]	};
+    key <AE07> {	[ NoSymbol ]	};
+    key <AE08> {	type[Group1] = "ONE_LEVEL", [ Left ]	};
+    key <AE09> {	type[Group1] = "ONE_LEVEL", [ Down ]	};
+    key <AE10> {	type[Group1] = "ONE_LEVEL", [ Up ]	};
+    key <AE11> {	type[Group1] = "ONE_LEVEL", [ Right ]	};
+    key <AE12> {	[     minus,	underscore	]	};
+    key <BKSP> {	[     equal,	plus		]	};
 
 
     // Level3 modifier mappings get overidden by some apps
     include "level5(modifier_mapping)"
-	key <RALT> { 
-        type[Group1]="ONE_LEVEL",
-        symbols[Group1] = [ ISO_Level5_Shift ]
-    };
 
     // Map numbers on layer 6 as well (Shift+Lvl5_Shift)
     // to make them work with keybinds such as `Mod4+Mod5+Number`
-    key <AD01> {	[	  q,	Q, NoSymbol, NoSymbol, 5, 5		]	};
-    key <AD02> {	[	  w,	W, NoSymbol, NoSymbol, 6,	6	]	};
-    key <AD03> {	[	  d,	D, NoSymbol, NoSymbol, 7,	7	]	};
-    key <AD04> {	[	  p,	P, NoSymbol, NoSymbol, 8,	8	]	};
-    key <AD05> {	[	  b,	B, NoSymbol, NoSymbol, 9,	9	]	};
-    key <AD06> {	[	  j,	J       ]	};
-    key <AD07> {	[	  l,	L       ]	};
-    key <AD08> {	[	  u,	U		]	};
-    key <AD09> {	[	  y,	Y		] 	};
-    key <AD10> { 
-        type[Group1] = "ONE_LEVEL",
-        symbols[Group1] = [ BackSpace ]
-    };
-    key <AD11> {	[ Escape ]	};
-    key <AD12> { [ bracketright, greater ]};
-    key <BKSL> {	[ backslash, bar     	]	};
+    key <AD01> {	[	  q,	Q       ]   };
+    key <AD02> {	[	  w,	W ]	};
+    key <AD03> {	[	  f,	F ]	};
+    key <AD04> {	[	  p,	P ]	};
+    key <AD05> {	[	  b,	B ]	};
+    key <AD06> {	[ NoSymbol ]	};
+    key <AD07> {	[	  k,	K, NoSymbol, NoSymbol, NoSymbol, NoSymbol ]	};
+    key <AD08> {	[	  l,	L, NoSymbol, NoSymbol, 8, 8       ]	};
+    key <AD09> {	[	  u,	U, NoSymbol, NoSymbol, 7, 7		]	};
+    key <AD10> {	[	  y,	Y, NoSymbol, NoSymbol, 6, 6		] 	};
+    key <AD11> {	[	  j,	J, NoSymbol, NoSymbol, 5, 5		] 	};
+    key <AD12> {	[ Escape ]	};
+    key <BKSL> { [ bracketright, greater ]};
 
-    // EXPERIMENTAL
-    // When pressing backspace with your ring finger, the pinky floats on top of
-    // shift. This takes advantage of that and merges escape onto the base layer
-    // opening up another key.
-    // There's no key that I'd like to place on <AD11> though so...
-    // key <AD10> { 
-    //     type[Group1] = "TWO_LEVEL",
-    //     symbols[Group1] = [ Escape, BackSpace ]
-    // };
-
-    key <AC01> {	[	  a,	A, NoSymbol, NoSymbol, 1, 1] };
-    key <AC02> {	[	  r,	R, NoSymbol, NoSymbol, 2,	2]	};
-    key <AC03> {	[	  s,	S, NoSymbol, NoSymbol, 3,	3]	};
-    key <AC04> {	[	  t,	T, period, NoSymbol, 4,	4]	};
-    key <AC05> {	[	  f,	F ]	};
-    key <AC06> {	[	  m,	M ]	};
-    key <AC07> {	[	  n,	N]	};
-    key <AC08> {	[	  e,	E]	};
-    key <AC09> {	[	  i,	I]	};
-    key <AC10> {	[	  o,	O]	};
-    key <AC11> { 
+    key <AC01> {	[	  a,	A ] };
+    key <AC02> {	[	  r,	R ]	};
+    key <AC03> {	[	  s,	S ]	};
+    key <AC04> {	[	  t,	T ]	};
+    key <AC05> {	[	  g,    G ]	};
+    key <AC06> {    [ NoSymbol ] };
+    key <AC07> {	[	  h,	H ]	};
+    key <AC08> {	[	  n,	N, NoSymbol, NoSymbol, 1, 1]	};
+    key <AC09> {	[	  e,	E, NoSymbol, NoSymbol, 2, 2]	};
+    key <AC10> {	[	  i,	I, NoSymbol, NoSymbol, 3, 3]	};
+    key <AC11> {	[	  o,	O, NoSymbol, NoSymbol, 4, 4]	};
+    key <RTRN> { 
         type[Group1] = "ONE_LEVEL", 
         symbols[Group1] = [ Shift_R ],
         actions[Group1] = [ SetMods(modifiers=Shift) ] // for Lock behavior, use LockMods
     };
-    key <RTRN> { [ semicolon, colon ] };
 
-    key <AB01> {	[	  z,	Z 		]	};
-    key <AB02> {	[	  x,	X		]	};
+    key <AB01> {	[	  z,	Z ]	};
+    key <AB02> {	[	  x,	X ]   };
     key <AB03> {	[	  v,	V		]	};
-    key <AB04> {	[	  c,	C, NoSymbol, NoSymbol, 0,	0	]	};
-    key <AB05> {	[	  g,	G		]	};
-    key <AB06> {	[	  h,	H ]	};
-    key <AB07> {	[     k,	K ]	};
-    key <AB08> { type[Group1]="TWO_LEVEL",  [ dead_tilde, question ]	};
-    key <AB09> { type[Group1]="TWO_LEVEL", [ dead_grave, slash ] };
-    key <AB10> { type[Group1] = "ONE_LEVEL", [ Super_R ] };
-    key <RTSH> { [ slash ] };
+    key <AB04> {    [     c,    C, NoSymbol, NoSymbol, 9,	9	 ] };
+    key <AB05> {	[	  d,    D ]	};
+    key <AB06> {	[     m,    M ]	};
+    key <AB07> {	[	  space,    NoSymbol, NoSymbol, NoSymbol, 0, 0 ] };
+    key <AB08> { type[Group1]="ONE_LEVEL", [     BackSpace ]	};
+    key <AB09> { type[Group1]="TWO_LEVEL",  [ dead_tilde, question ]	};
+    key <AB10> { type[Group1]="TWO_LEVEL", [ dead_grave, slash ] };
+    key <RTSH> { type[Group1] = "ONE_LEVEL", [ Super_R ] };
 
-    // There's ways to set this up where if you press and release the key quickly,
-    // it acts as Escape. On vanilla linux though, you need a separate program for
-    // that and I can't be bothered.
-    key <CAPS> {
-        type[Group1] = "ONE_LEVEL",
+    key <SPCE> { 
+        type[Group1]="ONE_LEVEL",
         symbols[Group1] = [ Control_L ],
         actions[Group1] = [ SetMods(modifiers=Control) ]
+    };
+
+    key <CAPS> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Shift_L ],
+        actions[Group1] = [ SetMods(modifiers=Shift) ]
+    };
+
+    key <LFSH> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ ISO_Level5_Shift ]
     };
 };
