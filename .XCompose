@@ -36,7 +36,7 @@
 <dead_grave> <z> : "@" 
 
 <dead_tilde> <x> : "\\"
-<dead_grave> <x> : "'"
+<dead_grave> <x> : ""
 
 <dead_tilde> <v> : "^"
 <dead_grave> <v> : "#"
